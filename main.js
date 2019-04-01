@@ -6,10 +6,10 @@ const config = require('./config.json');
 var client = new Client();
 client.config = config;
 
-var ws = new WS(config.ws.token, config.ws.port, client);
+var ws = new WS(config.ws.port, client);
 
 client.on('ready', () => {
   console.log(`Connected as ${client.user.tag}`);
 });
 
-client.login(config.token);
+client.login(config.token || process.env.token);
