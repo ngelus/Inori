@@ -1,5 +1,9 @@
 {
-  "token": "",
+  "discord": {
+    "token": "",
+    "secret": "w_k-DF47DqViKKQNz16oEwoVfoKhMOaH",
+    "owner_id": ""
+  },
   "ws": {
     "port": 1233
   }

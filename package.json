@@ -18,8 +18,10 @@
   "homepage": "https://github.com/Naggelus/discord-bot-plus-web#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "btoa": "^1.2.1",
     "discord.js": "^11.4.2",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.2"
+    "express-handlebars": "^3.0.2",
+    "node-fetch": "^2.3.0"
   }
 }
