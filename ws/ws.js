@@ -69,7 +69,8 @@ class Websocket {
         }
       });
       var json2 = await response2.json();
-      res.send({ j1: json, j2: json2 });
+      // TODO: IMPLEMENT DATABASE ACCESS AND WEBINTERFACE HERE!!!
+      //res.send({ j1: json, j2: json2 });
     });
   }
 }
