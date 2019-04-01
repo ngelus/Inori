@@ -2,7 +2,8 @@
   "discord": {
     "token": "",
     "secret": "w_k-DF47DqViKKQNz16oEwoVfoKhMOaH",
-    "owner_id": ""
+    "owner_id": "",
+    "prefix": "!!"
   },
   "ws": {
     "port": 1233
