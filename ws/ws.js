@@ -3,9 +3,8 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-class WebSocket {
-  constructor(token, port, client) {
-    this.token = token;
+class Websocket {
+  constructor(port, client) {
     this.port = port;
     this.client = client;
     this.app = express();
@@ -32,18 +31,11 @@ class WebSocket {
     });
   }
 
-  checkToken(_token) {
-    return _token == this.token;
-  }
-
   registerRoots() {
     this.app.get('/', (req, res) => {
-      var _token = req.query.token;
-      if (!this.checkToken(_token)) {
-        res.render('error', { title: 'ERROR!' });
-        return;
-      }
       return res.render('index', { title: 'TEST' });
     });
   }
 }
+
+module.exports = Websocket;
