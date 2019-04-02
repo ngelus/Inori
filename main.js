@@ -1,4 +1,4 @@
-const { Client } = require('discord.js');
+const { Client, RichEmbed } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -53,5 +53,29 @@ fs.readdir('./commands/', (err1, dirs) => {
     });
   });
 });
+
+Object.defineProperty(Array.prototype, 'chunk', {
+  value: function(chunkSize) {
+    var R = [];
+    for (var i = 0; i < this.length; i += chunkSize)
+      R.push(this.slice(i, i + chunkSize));
+    return R;
+  }
+});
+
+client.helpEmbeds = [];
+client.generateHelp = () => {
+  var chunked = client.categories.keys().chunk(25);
+  chunked.forEach(chunk => {
+    var embed = new RichEmbed();
+    chunk.forEach(cat => {
+      var catCmds = [];
+      cat.forEach(cmd => {
+        catCmds.push(`${cmd.commandName} - ${cmd.description}`);
+      });
+      embed.addField(cat, catCmds);
+    });
+  });
+};
 
 client.login(config.token || process.env.token);
