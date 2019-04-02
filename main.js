@@ -26,24 +26,31 @@ fs.readdir('./events/', (err, files) => {
 // CATEGORY AND COMMAND HANDLER
 // =============================================================================
 client.commands = new Map();
+client.categories = new Map();
 fs.readdir('./commands/', (err1, dirs) => {
   if (err1) return console.log(err1);
   dirs.forEach(dir => {
     fs.stat(path.join('./commands/', dir), (err2, stats) => {
       if (err2) return console.log(err2);
       if (stats.isDirectory()) {
+        var categoryContents = [];
         fs.readdir(path.join('./commands/', dir), (err3, files) => {
           if (err3) return console.log(err3);
           files.forEach(file => {
             if (!file.endsWith('.js')) return;
-            let props = {
+            var props = {
               category: dir,
               code: require(`./commands/${dir}/${file}`)
             };
-            let commandName = file.split('.')[0];
+            var commandName = file.split('.')[0];
+            categoryContents.push({
+              commandName: commandName,
+              description: props.code.description
+            });
             console.log(`Loading ${commandName}-command from category ${dir}`);
             client.commands.set(commandName, props);
           });
+          client.categories.set(dir, categoryContents);
         });
       }
     });
