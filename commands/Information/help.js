@@ -8,5 +8,6 @@ exports.run = (client, message, args) => {
   const embed = new RichEmbed()
     .setTitle('Help')
     .setAuthor(client.user.username, client.user.avatarURL)
-    .setColor(0x00ae86);
+    .setColor(0x00ae86)
+    .setDescription('Commands:');
 };
