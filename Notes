@@ -1,0 +1,14 @@
+Change in cmds:
+
+exports.description = '...';
+and
+exports.run = (client, message, args) => {...}
+
+to
+
+module.exports {
+    description: '...',
+    run: (client, message, args) =>{...}
+}
+
+reason: cleaner!
