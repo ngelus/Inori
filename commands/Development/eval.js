@@ -1,6 +1,6 @@
 exports.description = 'Evaluates code';
 
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
   if (message.author.id !== client.config.discord.owner_id) return;
   try {
     const code = args.join(' ');

@@ -1,4 +1,5 @@
 const { Client, RichEmbed } = require('discord.js');
+const enmap = require('enmap');
 const fs = require('fs');
 const path = require('path');
 
@@ -25,8 +26,8 @@ fs.readdir('./events/', (err, files) => {
 // =============================================================================
 // CATEGORY AND COMMAND HANDLER
 // =============================================================================
-client.commands = new Map();
-client.categories = new Map();
+client.commands = new enmap();
+client.categories = new enmap();
 fs.readdir('./commands/', (err1, dirs) => {
   if (err1) return console.log(err1);
   dirs.forEach(dir => {
