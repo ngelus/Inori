@@ -54,6 +54,7 @@ fs.readdir('./commands/', (err1, dirs) => {
   });
 });
 
+/*
 Object.defineProperty(Array.prototype, 'chunk', {
   value: function(chunkSize) {
     var R = [];
@@ -62,5 +63,6 @@ Object.defineProperty(Array.prototype, 'chunk', {
     return R;
   }
 });
+*/
 
 client.login(config.token || process.env.token);

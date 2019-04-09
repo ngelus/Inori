@@ -11,3 +11,5 @@ exports.run = (client, message, args) => {
     .setColor(0x00ae86)
     .setDescription('Commands:');
 };
+
+exports.generateHelp = () => {};
