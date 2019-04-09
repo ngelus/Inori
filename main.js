@@ -63,19 +63,4 @@ Object.defineProperty(Array.prototype, 'chunk', {
   }
 });
 
-client.helpEmbeds = [];
-client.generateHelp = () => {
-  var chunked = client.categories.keys().chunk(25);
-  chunked.forEach(chunk => {
-    var embed = new RichEmbed();
-    chunk.forEach(cat => {
-      var catCmds = [];
-      cat.forEach(cmd => {
-        catCmds.push(`${cmd.commandName} - ${cmd.description}`);
-      });
-      embed.addField(cat, catCmds);
-    });
-  });
-};
-
 client.login(config.token || process.env.token);
