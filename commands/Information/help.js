@@ -12,12 +12,12 @@ exports.run = async (client, message, args) => {
   });
   helpEmbed.addField('__**Categories**__', cats);
   helpEmbed.addField('Tips:', [
-    `Use ${
+    `Use \`${
       client.config.discord.prefix
-    }commands (category) to list all commands of a certain category.`,
-    `Use ${
+    }commands (category)\` to list all commands of a certain category.`,
+    `Use \`${
       client.config.discord.prefix
-    }help (command) to find out how to use that command.`
+    }help (command)\` to find out how to use that command.`
   ]);
   message.channel.send(helpEmbed);
 };
