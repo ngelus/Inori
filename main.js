@@ -41,13 +41,10 @@ fs.readdir('./commands/', (err1, dirs) => {
             if (!file.endsWith('.js')) return;
             var props = require(`./commands/${dir}/${file}`);
             var commandName = file.split('.')[0];
-            categoryContents.push(
-              `${commandName} --- ${props.description}`
-              /*{
+            categoryContents.push({
               commandName: commandName,
               description: props.description
-            }*/
-            );
+            });
             console.log(`Loading ${commandName}-command from category ${dir}`);
             client.commands.set(commandName, props);
           });

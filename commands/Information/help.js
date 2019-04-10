@@ -4,12 +4,17 @@ const { RichEmbed } = require('discord.js');
 exports.run = async (client, message, args) => {
   message.delete();
 
-  var helpEmbed = new RichEmbed();
+  var helpEmbed = new RichEmbed()
+    .setColor(0x00ae86)
+    .setTitle('__**Helplist**__');
   var testArr = Array.from(client.categories.keys());
   testArr.forEach(async catName => {
-    client.categories.get(catName);
+    var cmdStr = [];
+    client.categories.get(catName).forEach(cmd => {
+      cmdStr.push(`${cmd.commandName}: ${cmd.description}`);
+    });
+    helpEmbed.addField(`**${catName}**`, cmdStr);
   });
-  helpEmbed.addField('TEST', ['test123', 'new line?']);
   message.channel.send(helpEmbed);
 };
 
