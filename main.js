@@ -1,4 +1,5 @@
-const { Client } = require('discord.js');
+const { Client, RichEmbed } = require('discord.js');
+const enmap = require('enmap');
 const fs = require('fs');
 const path = require('path');
 
@@ -25,29 +26,44 @@ fs.readdir('./events/', (err, files) => {
 // =============================================================================
 // CATEGORY AND COMMAND HANDLER
 // =============================================================================
-client.commands = new Map();
+client.commands = new enmap();
+client.categories = new enmap();
 fs.readdir('./commands/', (err1, dirs) => {
   if (err1) return console.log(err1);
   dirs.forEach(dir => {
     fs.stat(path.join('./commands/', dir), (err2, stats) => {
       if (err2) return console.log(err2);
       if (stats.isDirectory()) {
+        var categoryContents = [];
         fs.readdir(path.join('./commands/', dir), (err3, files) => {
           if (err3) return console.log(err3);
           files.forEach(file => {
             if (!file.endsWith('.js')) return;
-            let props = {
-              category: dir,
-              code: require(`./commands/${dir}/${file}`)
-            };
-            let commandName = file.split('.')[0];
+            var props = require(`./commands/${dir}/${file}`);
+            var commandName = file.split('.')[0];
+            categoryContents.push({
+              commandName: commandName,
+              description: props.description
+            });
             console.log(`Loading ${commandName}-command from category ${dir}`);
             client.commands.set(commandName, props);
           });
+          client.categories.set(dir, categoryContents);
         });
       }
     });
   });
 });
+
+/*
+Object.defineProperty(Array.prototype, 'chunk', {
+  value: function(chunkSize) {
+    var R = [];
+    for (var i = 0; i < this.length; i += chunkSize)
+      R.push(this.slice(i, i + chunkSize));
+    return R;
+  }
+});
+*/
 
 client.login(config.token || process.env.token);
