@@ -1,4 +1,4 @@
-exports.description = 'Shows this help';
+exports.description = 'Shows the help';
 
 const { RichEmbed } = require('discord.js');
 exports.run = async (client, message, args) => {
