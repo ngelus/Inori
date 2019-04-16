@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   var catKeys = Array.from(client.categories.keys());
   var cats = [];
   await catKeys.forEach(async catName => {
-    cats.push(catName);
+    cats.push(`• ${catName}`);
   });
   helpEmbed.addField('__**Categories**__', cats);
   helpEmbed.addField('Tips:', [
