@@ -1,4 +1,7 @@
-const { Client, RichEmbed } = require('discord.js');
+const {
+  Client,
+  RichEmbed
+} = require('discord.js');
 const enmap = require('enmap');
 const fs = require('fs');
 const path = require('path');
@@ -66,4 +69,4 @@ Object.defineProperty(Array.prototype, 'chunk', {
 });
 */
 
-client.login(config.token || process.env.token);
+client.login(config.token);
