@@ -20,7 +20,8 @@
     "body-parser": "^1.19.1",
     "btoa": "^1.2.1",
     "discord.js": "^11.4.2",
-    "enmap": "^4.8.4",
+
+    "enmap": "^4.8.7",
     "express": "^4.17.2",
     "express-handlebars": "^3.0.2",
     "node-fetch": "^2.6.1"
