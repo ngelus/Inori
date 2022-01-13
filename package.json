@@ -21,7 +21,7 @@
     "btoa": "^1.2.1",
     "discord.js": "^11.4.2",
     "enmap": "^4.8.4",
-    "express": "^4.16.4",
+    "express": "^4.17.2",
     "express-handlebars": "^3.0.2",
     "node-fetch": "^2.6.1"
   }
