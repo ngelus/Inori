@@ -22,7 +22,7 @@
     "discord.js": "^11.6.4",
     "enmap": "^4.8.7",
     "express": "^4.17.2",
-    "express-handlebars": "^3.0.2",
+    "express-handlebars": "^3.1.0",
     "node-fetch": "^2.6.6"
   }
 }
